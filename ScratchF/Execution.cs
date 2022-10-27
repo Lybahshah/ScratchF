@@ -10,6 +10,13 @@ using System.Threading.Tasks;
 using OpenQA.Selenium.DevTools;
 using System.Security.Cryptography.X509Certificates;
 using AutoIt;
+using System.Runtime.Remoting.Channels;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Data.SqlClient;
+using System.Windows.Forms;
+using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.Drawing.Charts;
+using static System.Windows.Forms.AxHost;
 
 namespace ScratchF
 {
@@ -141,12 +148,32 @@ namespace ScratchF
             login.Autoit(username, password);
         }
         [TestCategory("Jobs")]
+        [DataSource("System.Data.SqlClient", "Data Source=DESKTOP-2LI0BRV;Initial Catalog=master;Integrated Security=True ", "SqaJobs",DataAccessMethod.Sequential)]
         [TestMethod]
         public void apply()
         {
             bp.SeleniumInit();
-            form.FormFill("laiba","riaz", "laibariaz0@gmail.com", "Raiwind", "Lahore","Punjab","1234","03216708300", "C:\\Users\\Admin\\Downloads\\bug.doc","500", "Hi,My name is laiba,I saw this job opening on Scratch,I'm an automation tester");
+
+
+           string fname = TestContext.DataRow[0].ToString().Trim();
+            string Lname = TestContext.DataRow[1].ToString().Trim();
+            string Email = TestContext.DataRow[2].ToString().Trim();
+            string Add = TestContext.DataRow[3].ToString().Trim();
+            string City = TestContext.DataRow[4].ToString().Trim();
+            string State = TestContext.DataRow[5].ToString().Trim();
+            string Postal = TestContext.DataRow[6].ToString().Trim();
+            string Phone = TestContext.DataRow[7].ToString().Trim();
+            string Resume = TestContext.DataRow[8].ToString().Trim();
+            string Sal = TestContext.DataRow[9].ToString().Trim();
+            string Interest = TestContext.DataRow[10].ToString().Trim();
+            form.FormFill(fname, Lname, Email, Add, City, State, Postal, Phone, Resume, Sal, Interest);
+
+
+
+
         }
+            
+        
     }
 }
 

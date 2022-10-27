@@ -32,8 +32,8 @@ namespace ScratchF
         
         By E12 = By.Id("applicant_desired_salary");
         By E13 = By.Id("response");
-        By E14 = By.XPath("/html/body/div/section/div/div[2]/aside/form/div[11]/div[2]/div[2]/label/label/input");
-        By E15 = By.XPath("/html/body/div/section/div/div[2]/aside/form/div[11]/div[3]/div[2]/label/label/input");
+        By E14 = By.XPath("/html/body/div/section/div/div[2]/aside/form/div[12]/div[2]/div[2]/label/label/input");
+        By E15 = By.XPath("/html/body/div/section/div/div[2]/aside/form/div[12]/div[3]/div[2]/label/label/input");
         By E16 = By.XPath("/html/body/div/section/div/div[2]/aside/form/div[12]/div[4]/input[3]");
         By E17 = By.Id("applicant_gender_female");
         By E18 = By.Id("applicant_ethnicity_asian");
@@ -54,7 +54,7 @@ namespace ScratchF
             driver.SwitchTo().Frame(0);
             IWebElement sqa = driver.FindElement(SQA);
             ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", sqa);
-            ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile("Test4.png", ScreenshotImageFormat.Png);
+             ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile("Test4.png", ScreenshotImageFormat.Png);
             sqa.Click();
             System.Threading.Thread.Sleep(1000);
 
@@ -71,7 +71,7 @@ namespace ScratchF
             driver.FindElement(E7).SendKeys(e7);
             driver.FindElement(E8).SendKeys(e8);
             driver.FindElement(E9).SendKeys(e9);
-            Thread.Sleep(3000);
+            Thread.Sleep(3000); 
             
             
            
@@ -90,9 +90,9 @@ namespace ScratchF
             act.Click(element18).Perform();
             IWebElement element19 = driver.FindElement(E19);
             act.Click(element19).Perform();
-            IWebElement element20 = driver.FindElement(By.Id("applicant_disability_status_no_i_dont_have_a_disability_or_a_historyrecord_of_having_a_disability"));
+            IWebElement element20 = driver.FindElement(E20);
             act.Click(element20).Perform();
-            IWebElement element21 = driver.FindElement(By.Id("apply_candidate"));
+            IWebElement element21 = driver.FindElement(E21);
             act.Click(element21).Perform();
             ////IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
             ////js.ExecuteScript("arguments[0].scrollIntoView(true);", element14);
